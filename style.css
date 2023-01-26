@@ -1,0 +1,50 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.inp {
+    padding: 3px;
+    border: 2px solid green;
+}
+
+.green {
+    background-color: green;
+    border: solid 2px green;
+    color: white;
+    padding: 3px;
+}
+
+ul {
+    list-style: none;
+}
+
+.title {
+    display: inline-block;
+}
+
+.done {
+    text-decoration: line-through;
+}
+
+.checkbox {
+    margin-left: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+    transform: scale(1.5);
+}
+
+.red {
+    background-color: red;
+    border-radius: 10%;
+    border: solid 2px white;
+    color: white;
+    padding: 3px;
+    margin-left: 10px;
+}
+
+.green:hover,
+.red:hover {
+  opacity: 0.5;
+  cursor: pointer;
+}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Page Title</title>
+	</head>
+	<body>
+        <div id="app">
+            <div align="center">
+                <h1>{{title}}</h1>
+                <div>
+                    <input class="inp" type="text" :placeholder="myPlaceholder" v-model="inputValue" @keypress.enter="addTitle" />
+                    <button class="green" @click="addTitle">Добавить</button>
+                </div>
+            </div>
+            <hr/>
+            <ul>
+                <li v-for="(item, index) in filteredTodoList" :key="item.index">
+                    <input type="text" v-model="item.title" v-if="item.edited" />
+                    <p v-else class="title">{{ index + 1}}. <span :class="item.done ? 'done' : ''">{{ item.title }}</span> | {{ item.date.toLocaleString()}}</p>
+                    <input v-model="item.done" class="checkbox" type="checkbox" />
+                    <button @click="editNote(item)">{{item.edited ? 'Скрыть' : 'Показать'}}</button>
+                    <button class="red" @click="removeTitle(index)">Удалить</button> 
+                </li>
+            </ul>
+            <span v-if="todoList.length !== 0">
+                <hr/>
+                <h3>Количество заметок: {{ todoList.length }}</h3>
+                <button @click="reverseTodoList">Перевернуть</button>
+                <button @click="sortedTodoList">Сортировать</button>
+                <button @click="sortedDateTodoList">Сортировать по дате</button>
+            </span>
+            <h2 align="center" v-else>Заметок нет, добавьте первую!</h2>
+        </div>
+        
+        <script src="https://unpkg.com/vue@next"></script>
+	</body>
+</html>
